@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Waiting Time Community Reporter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🩺</div>
+            <h1>Hospital Waiting Time Community Reporter</h1>
+            <p>Real-Time Updates for Better Planning</p>
+        </header>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" onclick="switchMode('patient')">👤 Patient Mode</button>
+            <button class="mode-btn" onclick="switchMode('staff')">👨‍⚕️ Staff Mode</button>
+        </div>
+
+        <!-- PATIENT MODE -->
+        <div id="patientMode" class="mode-content active">
+            <div class="patient-container">
+                <h2>Check Hospital & Doctor Status</h2>
+                
+                <div class="form-group">
+                    <label>Select Hospital</label>
+                    <select id="patientHospitalSelect" onchange="handleHospitalChange()" required>
+                        <option value="">-- Choose Hospital --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Doctor / Specialization</label>
+                    <select id="patientDoctorSelect" onchange="handleDoctorChange()" required>
+                        <option value="">-- Choose Doctor --</option>
+                    </select>
+                </div>
+
+                <div id="patientDetails" class="patient-status-panel hidden">
+                    <h3 id="patientDoctorTitle"></h3>
+                    <div class="current-status-container">
+                        <div class="status-item">
+                            <span class="status-label">⏱️ Waiting Time:</span>
+                            <span class="status-value" id="patientWaitingTime">--</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">🎫 Tokens Gone:</span>
+                            <span class="status-value" id="patientTokensGone">--</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">👥 Crowd Level:</span>
+                            <span class="status-value" id="patientCrowdLevel">--</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">👨‍⚕️ Doctor Status:</span>
+                            <span class="status-value" id="patientDoctorStatus">--</span>
+                        </div>
+                    </div>
+                    <p id="noUpdatesMsg" style="text-align:center;color:#999;padding:20px;font-style:italic;"></p>
+                </div>
+
+                <div id="noSelectionMsg" class="no-selection-msg">
+                    <p>👆 Select a hospital and doctor to view current status</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAFF MODE -->
+        <div id="staffMode" class="mode-content hidden">
+            <div class="staff-container">
+                <h2>Update Hospital Information</h2>
+                <form id="staffForm" onsubmit="submitStaffUpdate(event)">
+                    <div class="form-group">
+                        <label>Hospital</label>
+                        <select id="staffHospital" onchange="loadStaffDepartments()" required>
+                            <option value="">Select Hospital</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select id="staffDepartment" onchange="loadStaffDoctors()" required>
+                            <option value="">Select Department</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Doctor</label>
+                        <select id="staffDoctor" required>
+                            <option value="">Select Doctor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Waiting Time (minutes)</label>
+                        <input type="number" id="waitingTimeInput" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tokens Gone</label>
+                        <input type="number" id="tokensGoneInput" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Crowd Level</label>
+                        <select id="crowdLevelInput" required>
+                            <option value="">Select Level</option>
+                            <option value="No Crowd">No Crowd</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Busy">Busy</option>
+                            <option value="Very Busy">Very Busy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Doctor Availability</label>
+                        <select id="doctorAvailabilityInput" required>
+                            <option value="">Select Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Busy">Busy</option>
+                            <option value="Break">On Break</option>
+                            <option value="Offline">Offline</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Information</button>
+                </form>
+                <div id="staffMessage" class="message hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
