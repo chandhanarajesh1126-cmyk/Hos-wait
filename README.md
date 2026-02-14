@@ -9,8 +9,8 @@
 ### Team Name: [C squad]
 
 ### Team Members
-- Member 1: [Chandhana Rajesh] - [Lal Bahadur Shastri College of Engineering, Kasargod]
-- Member 2: [Anahita Jithendran] - [Lal Bahadur Shastri College of Engineering, Kasargod]
+- Member 1: [Chandhana Rajesh] - [Lal Bahadur Shastri College of Engineering, Kasaragod]
+- Member 2: [Anahita Jithendran] - [Lal Bahadur Shastri College of Engineering, Kasaragod]
 
 ### Hosted Project Link
 https://hos-wait.vercel.app/
