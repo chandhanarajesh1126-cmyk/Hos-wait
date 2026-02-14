@@ -13,7 +13,7 @@
 - Member 2: [Anahita Jithendran] - [Lal Bahadur Shastri College of Engineering, Kasargod]
 
 ### Hosted Project Link
-[]
+https://hos-wait.vercel.app/
 
 ### Project Description
 [Web platform that provides real-time updates on hospital waiting times, doctor availability, and crowd levels. Designed to help patients make informed decisions and reduce unnecessary waiting and travel.]
